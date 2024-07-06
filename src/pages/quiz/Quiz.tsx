@@ -10,7 +10,7 @@ function generateRandomQuestionNumbers(){
 
 console.log(generateRandomQuestionNumbers())
 
-export function QuizQuestion() {
+export default function QuizQuestion() {
 
     const { currentQuestionIndex } = useQuizStore();
     const question = audioFiles.find((question) => question.id === generateRandomQuestionNumbers() ?? 37) || audioFiles[99];

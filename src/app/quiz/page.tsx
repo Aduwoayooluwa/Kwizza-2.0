@@ -1,4 +1,4 @@
-import { QuizQuestion } from "@/pages/quiz/Quiz";
+import QuizQuestion  from "@/pages/quiz/Quiz";
 import { prisma } from "@/utils/global";
 
 
