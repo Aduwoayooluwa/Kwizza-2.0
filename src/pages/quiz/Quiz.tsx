@@ -17,13 +17,13 @@ export default function QuizQuestion() {
     const question = audioFiles.find((question) => question.id === generateRandomQuestionNumbers() ?? 37) || audioFiles[99];
 
     return(
-        <ClerkProvider>
+        <div>
             <QuizCard 
                 number={currentQuestionIndex + 1}
                 question={question?.word as string}
                 audioLink={question?.link as string}
                 id={question?.id as number}
             />
-        </ClerkProvider>
+        </div>
     )
 } 
