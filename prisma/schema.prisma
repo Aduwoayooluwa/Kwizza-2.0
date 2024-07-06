@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name   String @unique
+  email  String @unique
+  scores Int[]
+}
+
+model Question {
+  id             String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  word           String @unique
+  audioLink      String @unique
+  questionNumber Int    @default(dbgenerated("unique_rowid()"))
+  // attempts  Int
+  //correct   Int
+  //Round     Round?  @relation(fields: [roundId], references: [id])
+  //roundId   String?
+}
+
+model LeaderBoard {
+  id         String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String @unique
+  userName   String
+  totalScore Int
+  ageGroup   String @default("young")
+  rank       Int // Calculated dynamically (not stored)
+}
+
+// model Round {
+// id          String     @id @default(cuid())
+// name        String
+// questions   Question[] @relation(fields: [questionIds], references: [id])
+// questionIds String[]
+// }
