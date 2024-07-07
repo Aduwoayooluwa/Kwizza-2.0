@@ -1,5 +1,5 @@
 import { getLeaderboard } from "@/app/actions"
-import Leaderboard from "@/page/leaderboard/page;
+import Leaderboard from "@/page/leaderboard/page"
 
 
 export type LeaderBoardType = {
