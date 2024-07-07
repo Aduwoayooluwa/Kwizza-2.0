@@ -68,7 +68,7 @@ const QuizCard: React.FC<QuizType> = ({ number, question, audioLink, id }) => {
     return (
         <Card className="py-4 w-full md:w-[400px] lg:w-[600px] ">
             <CardHeader className="pb-0 pt-2 px-4 space-y-4 flex-col items-start">
-                <p className="text-tiny uppercase font-medium">Question {askedQuestions?.length + 1} {question} {"score: " + score}</p>
+                <p className="text-tiny uppercase font-medium">Question {askedQuestions?.length + 1}</p>
                 <h4 className="font-semibold text-md">{askedQuestions?.length + 1 + ". Spell the word in the recording"}</h4>
                 <AudioPlayer word={audioLink as string} />
                 <hr></hr>
