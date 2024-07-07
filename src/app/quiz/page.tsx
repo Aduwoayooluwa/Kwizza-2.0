@@ -1,6 +1,4 @@
-import QuizQuestion  from "@/pages/quiz/Quiz";
-import { prisma } from "@/utils/global";
-
+import QuizQuestion  from "@/page/quiz/Quiz;
 
 // export const submitQuiz = async () => {
     // "use server"
