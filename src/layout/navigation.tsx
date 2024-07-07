@@ -18,7 +18,7 @@ const Navbar = () => {
     const { user } = useUser();
 
     return (
-        <nav className="bg-white px-20 py-3 shadow w-full fixed top-0">
+        <nav className="bg-white px-6 md:px-10 lg:px-20 py-3 shadow w-full fixed top-0">
             <div className="container mx-auto flex justify-between items-center">
                 <Link href="/" passHref>
                     <p className="text-black text-xl font-bold">Kwizza</p>
