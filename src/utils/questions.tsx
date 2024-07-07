@@ -43,7 +43,7 @@ export const audioFiles: AudioFile[] = [
   { id: 36, word: "Joshua", link: "/audio/Joshua.mp3" },
   { id: 37, word: "Judges", link: "/audio/Judges.mp3" },
   { id: 38, word: "Ruth", link: "/audio/Ruth.mp3" },
-  { id: 39, word: "Obadiah", link: "/audio/Obadiah.wav" },
+  { id: 39, word: "Obadiah", link: "/audio/Obadiah.mp3" },
   { id: 40, word: "Ruth", link: "/audio/Ruth.mp3" },
 
   { id: 41, word: "Melchizedek", link: "/audio/Melchizedek.mp3" },
@@ -77,7 +77,7 @@ export const audioFiles: AudioFile[] = [
   { id: 69, word: "Paltites", link: "/audio/Paltites.mp3" },
   { id: 70, word: "Peletites", link: "/audio/Peletites.mp3" },
   { id: 71, word: "Sheba", link: "/audio/Sheba.mp3" },
-  { id: 72, word: "Tepelites", link: "/audio/Tepelites.mp3" },
+  { id: 72, word: "Tepalah", link: "/audio/Tepalah.mp3" },
   { id: 73, word: "Zarahites", link: "/audio/Zarahites.mp3" },
   { id: 74, word: "Abana", link: "/audio/Abana.mp3" },
   { id: 75, word: "Abiahil", link: "/audio/Abiahil.mp3" },
