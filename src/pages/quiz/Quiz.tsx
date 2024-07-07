@@ -3,7 +3,6 @@ import { prisma } from "@/utils/global"
 import { audioFiles } from "@/utils/questions";
 import QuizCard from "@/components/quiz";
 import useQuizStore from "@/store/quiz-store";
-import { ClerkProvider } from "@clerk/nextjs";
 
 function generateRandomQuestionNumbers(){
     return Math.floor(Math.random() * 100) || 20; 
