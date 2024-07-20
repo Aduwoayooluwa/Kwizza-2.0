@@ -1,6 +1,5 @@
 "use client"
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -12,19 +11,28 @@ import {
     UserButton,
     useUser
 } from '@clerk/nextjs'
+import { usePathname } from 'next/navigation';
 
-const Navbar = () => {
+const SignedInNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useUser();
 
+    const pathname = usePathname();
+    const header = pathname.split("/")[1]
+    console.log(header)
+
+    const pathnameCapitalize = () => {
+        return header.charAt(0).toUpperCase() + header.slice(1);
+    }
+
     return (
-        <nav className="bg-white px-6 md:px-10 lg:px-20 py-3 w-full fixed top-0">
-            <div className="container mx-auto flex justify-between items-center">
+        <nav className="bg-white w-[calc(100%-50px)] dashboard md:w-[calc(100%-250px)] overflow-x-hidden lg:w-[calc(100%-250px)] ml-[50px] md:ml-[210px] lg:ml-[250px] px-6 md:px-10 py-3  absolute top-0">
+            <div className="flex justify-between items-center">
                 <Link href="/" passHref>
-                    <p className="text-black text-xl font-bold">Kwizza</p>
+                    <p className="text-black text-[20px] font-bold">{pathnameCapitalize()}</p>
                 </Link>
                 <div className="hidden md:flex items-center space-x-4">
-                    <>
+                    <SignedOut>
                         <Link href="/about" passHref>
                             <p className="text-gray-800 hover:underline text-sm">About</p>
                         </Link>
@@ -35,18 +43,16 @@ const Navbar = () => {
                             <p className="text-gray-800 hover:underline text-sm">Login</p>
                         </Link>
 
-                        {/* <Button color="primary">
+                        <Button color="primary">
                             <SignInButton />
-                        </Button> */}
-                    </>
-                    {/* <SignedIn>
-                        <Link href="/quiz" passHref className="mr-10">
-                            <p className="text-gray-800 hover:underline text-sm">Quiz</p>
-                        </Link>
+                        </Button>
+                    </SignedOut>
+                    <SignedIn>
+
                         <UserButton />
                         <p>{user?.username}</p>
-                        <SignOutButton />
-                    </SignedIn> */}
+
+                    </SignedIn>
                 </div>
                 <div className="block md:hidden">
                     <button onClick={() => setIsOpen(!isOpen)}>
@@ -66,24 +72,24 @@ const Navbar = () => {
                     <Link href="/contact" passHref>
                         <p className="text-gray-800 hover:underline">Contact</p>
                     </Link>
-                    <>
-                    <Link href="/login" passHref>
-                        <p className="text-gray-800 hover:underline">Login</p>
-                    </Link>
-                    <Button color="primary">
-                        Sign Up
-                    </Button>
-                    </>
+                    <SignedOut>
+                        <Link href="/login" passHref>
+                            <p className="text-gray-800 hover:underline">Login</p>
+                        </Link>
+                        <Button color="primary">
+                            Sign Up
+                        </Button>
+                    </SignedOut>
 
-                      <>
-      {/* <UserButton /> */}
-      {/* <p>{user?.username}</p> */}
-      {/* <SignOutButton /> */}
-  </>
+                    <SignedIn>
+                        <UserButton />
+                        <p>{user?.username}</p>
+                        <SignOutButton />
+                    </SignedIn>
                 </motion.div>
             )}
         </nav>
     );
 };
 
-export default Navbar;
+export default SignedInNavbar;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,4 +11,14 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
+}
+
+.user-board {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.dashboard {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
 }

@@ -1,15 +1,23 @@
 'use client'
 
 import Navbar from '@/layout/navigation'
-import { useAuth } from '@clerk/nextjs'
+import SignedInNavbar from "@/layout/signedin-nav"
+import { SignedIn, SignedOut, useAuth } from '@clerk/nextjs'
 import {NextUIProvider} from '@nextui-org/react'
 
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
+  const { isSignedIn } = useAuth();
+
 
 
   return (
     <NextUIProvider>
-      <Navbar />
+      {
+        isSignedIn ? (
+           <SignedInNavbar />
+        ) : <Navbar />
+      }
+
       {children}
     </NextUIProvider>
   )

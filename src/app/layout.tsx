@@ -25,9 +25,9 @@ export default function RootLayout({
      <ClerkProvider>
     <html lang='en'>
       <body className={inter.className}>
-          <Providers>
-            
-            {children}
+          <Providers> 
+               { children} 
+
         </Providers>
       </body>
     </html>
@@ -35,11 +35,3 @@ export default function RootLayout({
   );
 }
 
-{/* <SignedOut> */}
-              {/* <Sidebar> */}
-                {/* { children} */}
-              {/* </Sidebar> */}
-            {/* </SignedOut> */}
-            {/* <SignedOut> */}
-              
-            {/* </SignedOut> */}
