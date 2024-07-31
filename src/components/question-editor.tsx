@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Editor from '@/components/editor'
-import { Select, SelectItem, Textarea, Input } from '@nextui-org/react';
+import { Select, SelectItem, Button, Input, RadioGroup, Radio } from '@nextui-org/react';
 import { UploadAudio } from './ui/audio-uploader';
 import { BsInfoCircleFill } from 'react-icons/bs';
  // const { NEXT_PUBLIC_TINY_EDITOR_KEY } = process.env;
@@ -13,27 +13,79 @@ interface QuestionEditorProps {
 const NEXT_PUBLIC_TINY_EDITOR_KEY = "9szoylxn2yd0e95ammvxy357k8cjdf9phj7qhl4h85d6xml3";
 
 const ShortAnswer = () => {
+    const [shortAnswers, setShortAnswers] = useState<string[]>([""]);
+
+    const handleAddAnswerField = () => {
+        setShortAnswers([...shortAnswers, ""]);
+    };
+
+    const handleAnswerChange = (index: number, value: string) => {
+        const newAnswers = [...shortAnswers];
+        newAnswers[index] = value;
+        setShortAnswers(newAnswers);
+    };
+
     return (
         <div className="w-full space-y-4">
-            <Input />
+            {shortAnswers.map((answer, index) => (
+                <Input
+                    key={index}
+                    value={answer}
+                    onChange={(e) => handleAnswerChange(index, e.target.value)}
+                    className="w-full"
+                />
+            ))}
+            <Button variant="bordered" onClick={handleAddAnswerField}>Add Answer</Button>
         </div>
-    )
-}
+    );
+};
+
 
 const MultipleChoice = () => {
+
     // select more than one answer 
+      const [choices, setChoices] = useState<string[]>([""]);
+
+    const handleAddChoiceField = () => {
+        setChoices([...choices, ""]);
+    };
+
+    const handleChoiceChange = (index: number, value: string) => {
+        const newChoices = [...choices];
+        newChoices[index] = value;
+        setChoices(newChoices);
+    };
     return (
         <div className="space-y-4 w-full">
-            <Editor apiKey={NEXT_PUBLIC_TINY_EDITOR_KEY as string} height={200} />
+             {choices.map((choice, index) => (
+            <Editor key={index} apiKey={NEXT_PUBLIC_TINY_EDITOR_KEY as string} height={200} />
+              ))}
+            <Button variant="bordered" onClick={handleAddChoiceField}>Add Choice</Button>
         </div>
     )
 }
 
 const SingleChoice = () => {
     // select only one answer;
+
+      const [choices, setChoices] = useState<string[]>([""]);
+
+    const handleAddChoiceField = () => {
+        setChoices([...choices, ""]);
+    };
+
+    const handleChoiceChange = (index: number, value: string) => {
+        const newChoices = [...choices];
+        newChoices[index] = value;
+        setChoices(newChoices);
+    };
+
     return (
         <div className="space-y-4 w-full">
-            <Editor apiKey={NEXT_PUBLIC_TINY_EDITOR_KEY as string} height={200} />
+           {choices.map((choice, index) => (
+            <Editor key={index} apiKey={NEXT_PUBLIC_TINY_EDITOR_KEY as string} height={200} />
+              ))}
+            <Button variant="bordered" onClick={handleAddChoiceField}>Add Choice</Button>
         </div>
 
     )
@@ -130,6 +182,7 @@ const QuestionEditor: React.FC<QuestionEditorProps> = ({ questionNumber }) => {
 
                 <section className="w-full">
                    { getAnswerField?.render }
+
                 </section>
 
                 {/* score settings and Configuration */}
