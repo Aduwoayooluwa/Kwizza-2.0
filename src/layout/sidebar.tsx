@@ -19,9 +19,9 @@ export const Sidebar = ({ children }: { children: React.ReactNode }) => {
     ]
 
     return (
-        <div className="flex bg-gray-100 overflow-x-hidden min-h-screen ">
+        <div className="flex bg-[#f1f5f8] overflow-x-hidden min-h-screen ">
             <motion.div
-                className="bg-gray-200 fixed top-0 left-0 dashboard h-full w-[50px] md:w-[210px] lg:w-[250px] flex flex-col items-center"
+                className="bg-white fixed top-0 left-0 dashboard h-full w-[50px] md:w-[214px] flex flex-col items-center"
                 initial={{ width: 50 }}
                 animate={{ width: ['50px', '210px', '250px'] }}
                 transition={{ duration: 0.5 }}
@@ -49,7 +49,7 @@ export const Sidebar = ({ children }: { children: React.ReactNode }) => {
                 </div>
             </motion.div>
 
-            <div className="mt-20 px-8 h-full flex-grow ml-[50px] md:ml-[210px] lg:ml-[250px] p-4">
+            <div className="mt-20 px-8 h-full flex-grow ml-[50px] md:ml-[240px] p-4">
                 {children}
             </div>
         </div>
