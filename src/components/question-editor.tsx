@@ -4,13 +4,14 @@ import Editor from '@/components/editor'
 import { Select, SelectItem, Button, Input, RadioGroup, Radio } from '@nextui-org/react';
 import { UploadAudio } from './ui/audio-uploader';
 import { BsInfoCircleFill } from 'react-icons/bs';
- // const { NEXT_PUBLIC_TINY_EDITOR_KEY } = process.env;
 
+
+const { NEXT_PUBLIC_TINY_EDITOR_KEY } = process.env;
 
 interface QuestionEditorProps {
     questionNumber?: number;
 }
-const NEXT_PUBLIC_TINY_EDITOR_KEY = "9szoylxn2yd0e95ammvxy357k8cjdf9phj7qhl4h85d6xml3";
+// const NEXT_PUBLIC_TINY_EDITOR_KEY = "9szoylxn2yd0e95ammvxy357k8cjdf9phj7qhl4h85d6xml3";
 
 const ShortAnswer = () => {
     const [shortAnswers, setShortAnswers] = useState<string[]>([""]);

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { IconType } from 'react-icons';
-import { FiSettings, FiHelpCircle, FiLock, FiHome, FiFileText, FiClock, FiAward  } from 'react-icons/fi';
+import { FiSettings, FiHelpCircle, FiLock, FiFileText, FiClock, FiAward  } from 'react-icons/fi';
 import { FaPlay } from "react-icons/fa";
 import { Sidebar } from "@/layout/sidebar";
 import { Button, Progress } from "@nextui-org/react";
