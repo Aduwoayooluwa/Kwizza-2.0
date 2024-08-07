@@ -55,11 +55,9 @@ export default function Question(props: Readonly<QuestionProps>) {
                 }
 
                 {
-                    type === "short_answer" ? answers.map((answer) => (
-                        <div key={answer}>
-                            <Textarea onChange={handleSelectQuestion} variant="bordered" minRows={3} />
-                        </div>
-                    )) : null
+                    type === "short_answer" ?  
+                        <Textarea color="primary" onChange={handleSelectQuestion} variant="bordered" minRows={3} /> 
+                    : null
                 }
 
             </section>

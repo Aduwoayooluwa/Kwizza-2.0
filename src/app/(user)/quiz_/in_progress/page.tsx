@@ -6,7 +6,7 @@ import Question, { QuestionProps } from "./question";
 const dummyQuestionData: Omit<QuestionProps, "setSelectedAnswer"> = {
     question: "What is your favorite programming language?",
     answers: ["JavaScript", "Python", "TypeScript", "Go"],
-    type: "multiple_choice",
+    type: "single_choice",
 };
 
 export interface SetAnswerProps {
