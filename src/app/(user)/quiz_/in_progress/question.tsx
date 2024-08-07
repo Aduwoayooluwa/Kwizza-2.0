@@ -44,9 +44,9 @@ export default function Question(props: Readonly<QuestionProps>) {
 
                 {
                     type === "single_choice" ?
-                        <RadioGroup>
+                        <RadioGroup onChange={handleSelectQuestion}>
                             {answers.map((answer) => (
-                            <Radio className="" onChange={handleSelectQuestion} value={answer} key={answer}>
+                            <Radio className=""  value={answer} key={answer}>
                                 {answer}
                             </Radio>
                      ))}
