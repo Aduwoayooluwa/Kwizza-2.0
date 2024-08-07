@@ -18,18 +18,13 @@ export default function StartQuiz() {
 
     function onSubmit(e: FormEvent<HTMLFormElement>) {
         if (e) e.preventDefault();
-        const { first_name, last_name } = userDetails;
-        if (first_name === "" || last_name === "") {
-            console.log("enter first name or last name")
-        }
-
         return userDetails;
     }
     return (
         <div className="h-screen overflow-x-hidden text-[#0F2830] w-full grid-place-items-center pb-7 grid bg-[#f1f5f8] ">
             <div className="container max-w-6xl mt-20 space-y-6  mx-auto">
                 <div className=" bg-white p-6 w-full shadow rounded-[10px]">
-                <p className="font-semibold text-[18px]">Example Quiz Testing</p>
+                    <p className="font-semibold text-[18px]">Example Quiz Testing</p>
                 </div>
 
                 <div className="w-full bg-white shadow p-6 rounded-[10px]">
@@ -75,7 +70,7 @@ export default function StartQuiz() {
 
                         <Input onChange={onUserDetailsFill} required label="Last Name" variant="bordered" name="first_name" />
 
-                        <Button color="primary">Start Quiz</Button>
+                        <Button type="submit" color="primary">Start Quiz</Button>
                     </form>
 
                     <span className="font-[600] text-[14px]">
