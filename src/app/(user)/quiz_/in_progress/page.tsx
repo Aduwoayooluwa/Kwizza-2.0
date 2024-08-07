@@ -24,6 +24,10 @@ export default function InProgress() {
     const onSubmit =(e: React.FormEvent<HTMLFormElement>) => {
         if (e) e.preventDefault();
 
+        if (selectedAnswer.answer === "" || selectedAnswer.question_id === "") {
+            return;
+        }
+
         // write the actual server function to call the question and generate next question.
         return selectedAnswer;
     }
