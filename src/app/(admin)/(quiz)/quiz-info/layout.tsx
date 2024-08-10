@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { IconType } from 'react-icons';
-import { FiSettings, FiHelpCircle, FiLock, FiFileText, FiClock, FiAward  } from 'react-icons/fi';
+import { FiSettings, FiHelpCircle, FiLock, FiFileText, FiClock  } from 'react-icons/fi';
 import { FaPlay } from "react-icons/fa";
 import { Sidebar } from "@/layout/sidebar";
-import { Button, Progress } from "@nextui-org/react";
+import { Button, Progress, Divider } from "@nextui-org/react";
 import { usePathname } from 'next/navigation';
 
 export const RouteTitleMatch:Record<string, string> = {
@@ -50,29 +50,31 @@ export default function QuizInfoLayout({
           {/*  put tjhe navigation bar on these layout pages on the folder, since they cannot be accessed unless logged in.  */}
             <div>
                 {/* header */}
-                <div className="flex w-full items-center mb-6 -mt-2">
+                <div className="flex flex-col md:flex-row w-full space-y-3 md:space-y-0 px-6 md:px-0 items-start md:items-center mb-6 -mt-2">
                     <div className="w-80">
                         <div className={`border w-fit grid place-items-center px-3 py-1 font-semibold rounded-[10px] text-center text-xs h-[30px] ${tagName.toLowerCase() === "closed" ? "text-[#BE3232]  border-[#BE3232]" : tagName.toLowerCase() === "setup in progress" ? "text-purple-500 border-purple-500" : ""}`}>{tagName.toUpperCase()}</div>
                     </div>
 
+                    <Divider className="w-full block md:hidden"/>
+
                   <div>
-                      <h2 className='font-semibold text-lg md:text-xl'>{ RouteTitleMatch[titleName] }</h2>
+                      <h2 className='font-semibold text-nowrap text-[16px] md:text-xl'>{ RouteTitleMatch[titleName] }</h2>
                   </div>
                 </div>
 
                 {/* body */}
                 <div className="flex items-start">
-                    <div className='pr-8'>
+                    <div className='pr-0 md:pr-8 hidden md:block md:w-[14rem] lg:w-[20rem]'>
                         {/* left bar */}
 
-                      <div className="mb-4 flex items-center space-x-3">
+                      <div className="mb-4  flex items-center space-x-3">
                           <p className='text-[15px] text-nowrap'>{"50% "} completed</p>
                             <Progress size='sm' value={50} aria-label="Loading..." />
                             
                         </div>
                         <h2 className="font-semibold text-lg md:text-xl ">Settings</h2>
 
-                        <div className="w-72 h-fit bg-gray-100 py-5">
+                        <div className="w-0 md:w-[200px] lg:w-72 h-fit bg-gray-100 py-5">
                             <ul className="space-y-2 ">
                                 <RenderList href="/quiz-info" icon={FiSettings} text="Setup Options" />
                                 <RenderList href="/quiz-info/questions-bank" icon={FiHelpCircle} text="Questions Bank" />
@@ -93,7 +95,7 @@ export default function QuizInfoLayout({
                         <div className="bg-gray-300 mt-6 h-[1px] w-full"></div>
                     </div>
 
-                    <div className='w-[calc(100%-20rem)]'>
+                    <div className='w-full md:w-[calc(100%-14rem)] lg:w-[calc(100%-20rem)]'>
                         {/* other bar */}
                         {children}
                     </div>

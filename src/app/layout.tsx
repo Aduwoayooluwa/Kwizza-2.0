@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers"
-import {
-  ClerkProvider,
-  SignedIn, SignedOut
-} from '@clerk/nextjs'
 
 import "./globals.css";
-import { Sidebar } from "@/layout/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,16 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-     <ClerkProvider>
-    <html lang='en'>
+
+    <html lang='en' suppressHydrationWarning={true}>
       <body className={inter.className}>
           <Providers> 
                { children} 
-
         </Providers>
       </body>
     </html>
-  </ClerkProvider>
   );
 }
 

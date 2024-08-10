@@ -4,18 +4,10 @@ import { useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import {
-    SignInButton,
-    SignOutButton,
-    SignedIn,
-    SignedOut,
-    UserButton,
-    useUser
-} from '@clerk/nextjs'
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = useUser();
 
     return (
         <nav className="bg-white px-6 md:px-10 lg:px-20 py-3 w-full fixed top-0">
@@ -24,7 +16,7 @@ const Navbar = () => {
                     <p className="text-black text-xl font-bold">Kwizza</p>
                 </Link>
                 <div className="hidden md:flex items-center space-x-4">
-                    <>
+                    <div>
                         <Link href="/about" passHref>
                             <p className="text-gray-800 hover:underline text-sm">About</p>
                         </Link>
@@ -35,18 +27,9 @@ const Navbar = () => {
                             <p className="text-gray-800 hover:underline text-sm">Login</p>
                         </Link>
 
-                        {/* <Button color="primary">
-                            <SignInButton />
-                        </Button> */}
-                    </>
-                    {/* <SignedIn>
-                        <Link href="/quiz" passHref className="mr-10">
-                            <p className="text-gray-800 hover:underline text-sm">Quiz</p>
-                        </Link>
-                        <UserButton />
-                        <p>{user?.username}</p>
-                        <SignOutButton />
-                    </SignedIn> */}
+                  
+                    </div>
+                
                 </div>
                 <div className="block md:hidden">
                     <button onClick={() => setIsOpen(!isOpen)}>
@@ -74,12 +57,6 @@ const Navbar = () => {
                         Sign Up
                     </Button>
                     </>
-
-                      <>
-      {/* <UserButton /> */}
-      {/* <p>{user?.username}</p> */}
-      {/* <SignOutButton /> */}
-  </>
                 </motion.div>
             )}
         </nav>
